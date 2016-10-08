@@ -5,9 +5,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:new,:create,:edit,:update,:destroy] do
       resources :likes, only: [:create,:destroy]
     end
-    
+
     collection do
       get 'search'
     end
+  end  
   root 'papers#index'
 end
