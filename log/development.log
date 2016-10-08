@@ -59,3 +59,179 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_name = 'users'
 
   [1m[36m (0.3ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePapers (20161008094424)
+  [1m[35m (31.5ms)[0m  CREATE TABLE `papers` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `abstract` text, `url` text, `date` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (57.4ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (61.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePapers (20161008094424)
+  [1m[35m (31.6ms)[0m  CREATE TABLE `papers` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `abstract` text, `url` text, `date` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (24.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094424')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePublishes (20161008094425)
+  [1m[35m (32.7ms)[0m  CREATE TABLE `publishes` (`id` int(11) auto_increment PRIMARY KEY, `author_id` int(11), `paper_id` int(11), `order` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094425')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAuthors (20161008094426)
+  [1m[35m (30.3ms)[0m  CREATE TABLE `authors` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094426')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateImages (20161008094427)
+  [1m[35m (35.5ms)[0m  CREATE TABLE `images` (`id` int(11) auto_increment PRIMARY KEY, `target_id` int(11), `url` varchar(255), `type` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094427')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20161008094430)
+  [1m[35m (57.7ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `comment` text, `paper_id` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094430')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'authors'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `authors`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'comments'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `comments`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'images'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `images`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'papers'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `papers`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'publishes'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `publishes`
+  [1m[36m (72.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (60.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePapers (20161008094424)
+  [1m[35m (52.1ms)[0m  CREATE TABLE `papers` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `abstract` text, `url` text, `date` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094424')
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePublishes (20161008094425)
+  [1m[35m (52.4ms)[0m  CREATE TABLE `publishes` (`id` int(11) auto_increment PRIMARY KEY, `author_id` int(11), `paper_id` int(11), `order` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094425')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAuthors (20161008094426)
+  [1m[35m (52.3ms)[0m  CREATE TABLE `authors` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094426')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateImages (20161008094427)
+  [1m[35m (47.9ms)[0m  CREATE TABLE `images` (`id` int(11) auto_increment PRIMARY KEY, `target_id` int(11), `url` varchar(255), `type` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094427')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20161008094430)
+  [1m[35m (50.4ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `comment` text, `paper_id` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008094430')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLikes (20161008095208)
+  [1m[35m (44.3ms)[0m  CREATE TABLE `likes` (`id` int(11) auto_increment PRIMARY KEY, `comment_id` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008095208')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'authors'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `authors`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'comments'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `comments`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'images'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `images`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'likes'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `likes`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'papers'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `papers`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'publishes'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `publishes`
