@@ -9,6 +9,7 @@ class PapersController < ApplicationController
   end
 
   def show
+    @paper = Paper.find(params[:id])
   end
 
 
