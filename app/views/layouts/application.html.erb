@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div>
+      <%= form_tag('/papers/search', method: :get) do %>
+        <input  name="keyword" placeholder="論文名で検索" type="text" value="">
+          <button title="検索" type="submit"><i>検索</i></button>
+        </input>
+      <% end %>
+    </div>
+    <div> <a href="/"> ArxivPicks </a> </div>
+  </header>
 
 <%= yield %>
 
+  <footer>
+  コピーライト
+  </footer>
 </body>
 </html>
