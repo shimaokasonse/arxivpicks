@@ -1,3 +1,20 @@
 <div>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to 'コメントする', "/papers/#{@paper.id}/comments/new" %>
+    <% else %>
+      <%= link_to 'ログインしてコメント', '/users/sign_in' %>
+    <% end %>
+  </div>
+  <div>
   <%= link_to "#{@paper.title}", "#{@paper.url}" %>
+  </div>
+  <div>
+  <% @comments.each do |comment| %>
+    <div>
+      <strong> <%= comment.user.name %>:  </strong>
+        <%= comment.comment %>
+    </div>
+  <% end %>
+  </div>
 </div>
