@@ -27,14 +27,6 @@ ActiveRecord::Schema.define(version: 20161008100624) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "images", force: :cascade do |t|
-    t.integer  "target_id",  limit: 4
-    t.string   "url",        limit: 255
-    t.string   "type",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer  "comment_id", limit: 4
     t.integer  "user_id",    limit: 4
