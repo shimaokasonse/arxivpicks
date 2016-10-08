@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+  <% if comment.like_user(current_user.id) %>
+    <%= button_to 'Likeを取り消す', paper_comment_like_path(paper,comment, comment.like_user(current_user.id)), method: :delete, remote: true %>
+    <span> <%= comment.like_count %> Like </span>
+  <% else %>
+    <%= button_to 'Like', paper_comment_likes_path(paper,comment), remote: true %>
+    <span> <%= comment.like_count %> Like </span>
+  <% end %>
+<% else %>
+  <span> <%= comment.like_count %> Like </span>
+<% end %>

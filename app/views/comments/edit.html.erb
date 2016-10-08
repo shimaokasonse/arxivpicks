@@ -5,11 +5,9 @@
       <%= f.text_area :comment, value: @comment.comment, placeholder: "コメントする", style: 'width: 100%;height: 300px;' %>
     </div>
     <div>
-      <div>
-        <%= button_tag type: "submit" do %>
-          投稿する<i></i>
-        <% end %>
-      </div>
+      <%= button_tag type: "submit" do %>
+        投稿する<i></i>
+      <% end %>
     </div>
   <% end %>
 </div>

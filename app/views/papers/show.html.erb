@@ -1,9 +1,9 @@
 <div>
   <div>
     <% if user_signed_in? %>
-      <% if @paper.has_comment_from?(current_user.id) %>
-        <%= link_to 'コメントを編集', "/papers/#{@paper.id}/comments/#{@paper.get_comment_from_user(current_user.id).id}/edit", method: :get %>
-        <%= link_to 'コメントを削除', "/papers/#{@paper.id}/comments/#{@paper.get_comment_from_user(current_user.id).id}", method: :delete %>
+      <% if @paper.comment_user(current_user.id) %>
+        <%= link_to 'コメントを編集', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit", method: :get %>
+        <%= link_to 'コメントを削除', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete %>
       <% else %>
         <%= link_to 'Pick!', "/papers/#{@paper.id}/comments/new" %>
       <% end %>
@@ -17,6 +17,7 @@
     <div>
       <strong> <%=  comment.user.name %>:  </strong>
         <%= simple_format comment.comment %>
+        <span id="like_count<%= comment.id %>"> <%= render partial: "likes/like", locals: {paper: @paper, comment: comment} %> </span>
     </div>
   <% end %>
   </div>
