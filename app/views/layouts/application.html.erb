@@ -15,6 +15,14 @@
         </input>
       <% end %>
     </div>
+    <div>
+      <% if user_signed_in? %>
+       こんにちは、<strong> <%= current_user.name%> </strong>さ〜ん！
+       <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
+      <% else %>
+       <%= link_to 'ログイン', "/users/sign_in", method: :get %> 
+      <% end %>
+    </div>
     <div> <a href="/"> ArxivPicks </a> </div>
   </header>
 
