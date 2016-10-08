@@ -314,3 +314,90 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_name = 'users'
 [0m
   [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddIntroductionToUsers (20161008100504)
+  [1m[35m (61.8ms)[0m  ALTER TABLE `users` ADD `introduction` text
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008100504')
+  [1m[36m (7.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddNameToUsers (20161008100526)
+  [1m[35m (64.3ms)[0m  ALTER TABLE `users` ADD `name` varchar(255)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008100526')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddImageIdToUsers (20161008100624)
+  [1m[35m (68.1ms)[0m  ALTER TABLE `users` ADD `image_id` int(11)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20161008100624')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'authors'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `authors`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'comments'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `comments`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'images'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `images`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'likes'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `likes`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'papers'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `papers`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'publishes'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `publishes`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'arxivpicks_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `users`
