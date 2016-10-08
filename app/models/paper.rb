@@ -10,4 +10,15 @@ class Paper < ActiveRecord::Base
     return result
   end
 
+  def has_comment_from?(user_id)
+    if Comment.find_by(paper_id: self.id, user_id: user_id) 
+      return true
+    end
+    return false
+  end
+
+  def get_comment_from_user(user_id)
+    Comment.find_by(paper_id: self.id, user_id: user_id)
+  end
+
 end
