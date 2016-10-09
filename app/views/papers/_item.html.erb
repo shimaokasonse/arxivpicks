@@ -1,3 +1,6 @@
 <div>
     <%= link_to "#{paper.title}", "/papers/#{paper.id}"%>
+    <% if paper.top_comment %>
+      <%= simple_format paper.top_comment.comment %>
+    <% end %>
 </div>

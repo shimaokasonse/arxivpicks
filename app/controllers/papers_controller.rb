@@ -1,18 +1,17 @@
 class PapersController < ApplicationController
 
   def index
-    ids = Comment.group(:paper_id).order('count_paper_id DESC')
-                 .page(params[:page]).per(5).count(:paper_id).keys
-    @papers = ids.map{ |id| Paper.find(id)}
+    @papers = Paper.order("comments_count DESC").page(params[:page]).per(5)
   end
 
   def search
-    @papers = Paper.where("title LIKE(?)","%#{params[:keyword]}%").limit(5).order('date DESC')
+    @papers = Paper.where("title LIKE(?)","%#{params[:keyword]}%")
+                   .order('comments_count DESC').page(params[:page]).per(5)
   end
 
   def show
     @paper = Paper.find(params[:id])
-    @comments = @paper.comments
+    @comments = @paper.comments.order('likes_count DESC').page(params[:page]).per(5)
   end
 
 end

@@ -14,4 +14,9 @@ class Paper < ActiveRecord::Base
     comments.find_by(user_id: user_id)
   end
 
+  def top_comment
+    max_likes = comments.maximum(:likes_count)
+      comments.find_by(likes_count: max_likes)
+  end
+
 end

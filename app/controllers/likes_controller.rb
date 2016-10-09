@@ -4,14 +4,14 @@ class LikesController < ApplicationController
     like = Like.create(create_params)
     @paper = like.comment.paper
     @comment = like.comment
-    @like_count = like.comment.like_count
+    @like_count = like.comment.likes_count
   end
 
   def destroy
     like = Like.find(params[:id])
     @comment = like.comment
     @paper = like.comment.paper
-    @like_count = like.comment.like_count - 1
+    @like_count = like.comment.likes_count - 1
     like.destroy
   end
 
