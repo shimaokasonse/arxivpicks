@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008111214) do
+ActiveRecord::Schema.define(version: 20161009113416) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(version: 20161008111214) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text     "comment",    limit: 65535
-    t.integer  "paper_id",   limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "comment",     limit: 65535
+    t.integer  "paper_id",    limit: 4
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "likes_count", limit: 4,     default: 0
   end
 
   create_table "likes", force: :cascade do |t|
@@ -35,13 +36,14 @@ ActiveRecord::Schema.define(version: 20161008111214) do
   end
 
   create_table "papers", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "abstract",   limit: 65535
-    t.text     "url",        limit: 65535
-    t.string   "date",       limit: 255
-    t.string   "category",   limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",          limit: 255
+    t.text     "abstract",       limit: 65535
+    t.text     "url",            limit: 65535
+    t.string   "date",           limit: 255
+    t.string   "category",       limit: 255
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "comments_count", limit: 4,     default: 0
   end
 
   create_table "publishes", force: :cascade do |t|

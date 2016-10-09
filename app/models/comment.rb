@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to  :user
-  belongs_to :paper
+  belongs_to :paper, counter_cache: :comments_count
   has_many :likes
 
   def like_count
