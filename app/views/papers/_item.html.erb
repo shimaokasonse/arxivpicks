@@ -1,6 +1,12 @@
 <div>
     <%= link_to "#{paper.title}", "/papers/#{paper.id}"%>
+    <strong> <%= paper.comments_count%> Picks</strong>
     <% if paper.top_comment %>
-      <%= simple_format paper.top_comment.comment %>
+      <div>
+        <strong> <%=  paper.top_comment.user.name %>  </strong>
+        <%= paper.top_comment.updated_at %><br>
+        <%= paper.top_comment.user.introduction %>
+        <%= simple_format paper.top_comment.comment %>
+      </div>
     <% end %>
 </div>
