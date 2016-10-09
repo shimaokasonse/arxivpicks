@@ -14,4 +14,11 @@ class PapersController < ApplicationController
     @comments = @paper.comments.order('likes_count DESC').page(params[:page]).per(5)
   end
 
+  def edit
+    @paper = Paper.find(params[:id])
+  end
+
+  def update
+  end
+
 end
