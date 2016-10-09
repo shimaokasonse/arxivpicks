@@ -13,6 +13,7 @@
         <%= comment.updated_at %><br>
         <%= comment.user.introduction %>
         <%= markdown  comment.comment %>
+        <span> <%= comment.like_count %> Like </span>
       </div>
     <% end %>
 </div>

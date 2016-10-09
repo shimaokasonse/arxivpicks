@@ -9,12 +9,11 @@
       <% end %>
     <% end %>
   </div>
-  <div>
+  <div class = "item">
   <%= link_to "#{@paper.title}", "#{@paper.url}" %>
-  </div>
   <div>
   <% @comments.each do |comment| %>
-    <div>
+    <div class="comment">
       <strong> <%=  comment.user.name %>  </strong>
       <%= comment.updated_at %><br>
       <%= comment.user.introduction %>
