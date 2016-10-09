@@ -1,0 +1,4 @@
+<% @papers.each do |paper| %>
+  <%= render partial: "item", locals: { paper: paper, comment: paper.top_comment } %>
+<% end %>
+

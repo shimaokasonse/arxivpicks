@@ -1,0 +1,18 @@
+<div class = "item">
+    <% if paper.image.url %>
+        <%= image_tag paper.image.url, style: "width:300px;"%>
+    <% end %>
+    <% if paper.headline %>
+        <h2> <%= paper.headline %></h2>
+    <% end %>
+    <%= link_to "#{paper.title}", "/papers/#{paper.id}"%>
+    <strong> <%= paper.comments_count%> Picks</strong>
+    <% if comment %>
+      <div class = "comment">
+        <strong> <%= link_to comment.user.name ,"/users/#{comment.user.id}"%>  </strong>
+        <%= comment.updated_at %><br>
+        <%= comment.user.introduction %>
+        <%= markdown  comment.comment %>
+      </div>
+    <% end %>
+</div>

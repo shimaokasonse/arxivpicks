@@ -1,0 +1,9 @@
+<h1><%= @name %></h1>
+<% if @image %>
+  <%= image_tag @image.url, style: "width: 100px;"%>
+<% end %>
+<h2><%= @introduction %></h2>
+<% @comments.each do |comment| %>
+  <%= render partial: "/papers/item", locals: { paper: comment.paper, comment: comment } %>
+  <span> <%= comment.like_count %> Like </span>
+<% end %>
