@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @name = user.name
     @introduction = user.introduction
     @comments = Comment.where(user_id: params[:id]).order("created_at ASC")
+    @image = user.image
   end
 
 end

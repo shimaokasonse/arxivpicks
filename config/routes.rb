@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'papers#index'
 
-  resources :papers, only: :show do
+  resources :papers, only: [:show, :update, :edit] do
     resources :comments, only: [:new,:create,:edit,:update,:destroy] do
       resources :likes, only: [:create,:destroy]
     end

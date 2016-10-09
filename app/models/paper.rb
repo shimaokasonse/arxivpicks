@@ -2,6 +2,8 @@ class Paper < ActiveRecord::Base
   has_many :comments
   has_many :publishs
 
+  mount_uploader :image, ImageUploader
+
   def authors
     result = []
     Publish.where(paper_id: self.id).each do |publish|
