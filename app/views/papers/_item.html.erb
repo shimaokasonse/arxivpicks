@@ -1,6 +1,8 @@
 <div class = "item">
     <% if paper.image.url %>
-        <%= image_tag paper.image.url, style: "width:300px;"%>
+        <%= image_tag paper.image.url, style: "width:100%;"%>
+    <% else %>
+        <%= image_tag "http://free-tribe.com/okamura/wp-content/uploads/sites/4/2016/01/sat-ai-head-640x353.jpg", style: "width:100%;"%>
     <% end %>
     <% if paper.headline %>
         <h2> <%= paper.headline %></h2>
@@ -13,7 +15,7 @@
         <%= comment.updated_at %><br>
         <%= comment.user.introduction %>
         <%= markdown  comment.comment %>
-        <span> <%= comment.like_count %> Like </span>
+        <span> <%= comment.like_count %> Likes </span>
       </div>
     <% end %>
 </div>
