@@ -18,16 +18,30 @@
     <% end %>
   <%= link_to "#{@paper.title}", "#{@paper.url}" %>
   <strong> <%= @paper.comments_count%> Picks</strong>
-  <% @comments.each do |comment| %>
-    <% if comment.user %>
-    <div class="comment">
-      <strong> <%=  comment.user.name %>  </strong>
-      <%= comment.updated_at %><br>
-      <%= comment.user.introduction %>
-        <%= markdown comment.comment %>
-        <span id="like_count<%= comment.id %>"> <%= render partial: "likes/like", locals: {paper: @paper, comment: comment} %> </span>
-    </div>
+  <div class="pick-stream">
+    <% @comments.each do |comment| %>
+      <% if comment.user %>
+      <div class="comment-row with-border">
+        <div>
+          <div class="user-cover"></div>
+          <div class="user-profile">
+            <div class="name-wrapper">
+              <div class="name"> <%=  comment.user.name %> </div>
+            </div>
+            <span class="introduction"> <%= comment.user.introduction %> </span>
+            <span class="picktime"> <%= comment.updated_at %> </span>
+          </div>
+        </div>
+        <div class = "comment-wrapper">
+          <div class = "comment"> <%= markdown comment.comment %> </div>
+          <span id="like_count<%= comment.id %>"> <%= render partial: "likes/like", locals: {paper: @paper, comment: comment} %> </span>
+        </div>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
   </div>
 </div>
+
+
+

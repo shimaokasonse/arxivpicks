@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Arxivpicks</title>
+  <title>ArxivPicks</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
   <header>
     <div>
       <%= form_tag('/papers/search', method: :get) do %>
-        <input  name="keyword" placeholder="論文名で検索" type="text" value="">
+        <input  name="keyword" placeholder="論文を検索" type="text" value="">
           <button title="検索" type="submit"><i>検索</i></button>
         </input>
       <% end %>
