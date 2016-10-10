@@ -13,6 +13,7 @@
   <%= link_to "#{@paper.title}", "#{@paper.url}" %>
   <div>
   <% @comments.each do |comment| %>
+    <% if comment.user %>
     <div class="comment">
       <strong> <%=  comment.user.name %>  </strong>
       <%= comment.updated_at %><br>
@@ -20,6 +21,7 @@
         <%= markdown comment.comment %>
         <span id="like_count<%= comment.id %>"> <%= render partial: "likes/like", locals: {paper: @paper, comment: comment} %> </span>
     </div>
+    <% end %>
   <% end %>
   </div>
 </div>

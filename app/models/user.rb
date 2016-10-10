@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_many :likes
   
   mount_uploader :image, ImageUploader
+
+  validates :name, presence: true, length: { maximum: 8 }
 end
