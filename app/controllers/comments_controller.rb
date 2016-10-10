@@ -17,8 +17,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    comment = Comment.find(params[:id])
+    if comment.user_id != current_user.id
+      redirect_to "/"
+    end
     @paper = Paper.find(params[:paper_id])
-    @comment = Comment.find(params[:id])
+    @comment = comment
   end
 
   def update
