@@ -1,5 +1,5 @@
 <h1><%= @name %></h1>
-<% if @image %>
+<% if @image.url %>
   <%= image_tag @image.url, style: "width: 100px;"%>
 <% end %>
 <h2><%= @introduction %></h2>

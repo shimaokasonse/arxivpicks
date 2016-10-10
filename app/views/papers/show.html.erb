@@ -9,38 +9,28 @@
       <% end %>
     <% end %>
   </div>
-  <div class = "item">
+
   <% if @paper.image.url %>
-        <%= image_tag @paper.image.url, style: "width:100%;"%>
-    <% end %>
-    <% if @paper.headline %>
-        <h2> <%= @paper.headline %></h2>
-    <% end %>
+    <%= image_tag @paper.image.url, style: "width:100%;"%>
+  <% else %>
+    <%= image_tag "http://free-tribe.com/okamura/wp-content/uploads/sites/4/2016/01/sat-ai-head-640x353.jpg", style: "width:100%;"%>
+  <% end %>
+
+  <% if @paper.headline %>
+    <h2> <%= @paper.headline %></h2>
+  <% end %>
   <%= link_to "#{@paper.title}", "#{@paper.url}" %>
   <strong> <%= @paper.comments_count%> Picks</strong>
-  <div class="pick-stream">
+
+  <div class="picks">
+    <div class="section-header">注目コメント</div>
     <% @comments.each do |comment| %>
       <% if comment.user %>
-      <div class="comment-row with-border">
-        <div>
-          <div class="user-cover"></div>
-          <div class="user-profile">
-            <div class="name-wrapper">
-              <div class="name"> <%=  comment.user.name %> </div>
-            </div>
-            <span class="introduction"> <%= comment.user.introduction %> </span>
-            <span class="picktime"> <%= comment.updated_at %> </span>
-          </div>
-        </div>
-        <div class = "comment-wrapper">
-          <div class = "comment"> <%= markdown comment.comment %> </div>
-          <span id="like_count<%= comment.id %>"> <%= render partial: "likes/like", locals: {paper: @paper, comment: comment} %> </span>
-        </div>
-      </div>
+        <%= render partial: "commentbox", locals: {comment: comment} %>
       <% end %>
     <% end %>
   </div>
-  </div>
+
 </div>
 
 

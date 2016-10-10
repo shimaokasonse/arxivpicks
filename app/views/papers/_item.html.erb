@@ -10,12 +10,6 @@
     <%= link_to "#{paper.title}", "/papers/#{paper.id}"%>
     <strong> <%= paper.comments_count%> Picks</strong>
     <% if comment and comment.user %>
-      <div class = "comment">
-        <strong> <%= link_to comment.user.name ,"/users/#{comment.user.id}"%>  </strong>
-        <%= comment.updated_at %><br>
-        <%= comment.user.introduction %>
-        <%= markdown  comment.comment %>
-        <span> <%= comment.like_count %> Likes </span>
-      </div>
+      <%= render partial: "/papers/commentbox", locals: {comment: comment} %>
     <% end %>
 </div>

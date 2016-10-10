@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <div>
+    <div class="search-box">
       <%= form_tag('/papers/search', method: :get) do %>
         <input  name="keyword" placeholder="論文を検索" type="text" value="">
           <button title="検索" type="submit"><i>検索</i></button>
@@ -16,19 +16,19 @@
       <% end %>
     </div>
     <div>
+      <a href="/"> ArxivPicks </a> 
       <% if user_signed_in? %>
-       こんにちは、<strong> <%= current_user.name%> </strong>さん！
        <%= link_to 'マイページ', "/users/#{current_user.id}", method: :get %>
        <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
       <% else %>
        <%= link_to 'ログイン', "/users/sign_in", method: :get %> 
       <% end %>
     </div>
-    <div> <a href="/"> ArxivPicks </a> </div>
   </header>
 
-<%= yield %>
-
+  <div class="content">
+    <%= yield %>
+  </div>
   <footer>
   コピーライト
   </footer>

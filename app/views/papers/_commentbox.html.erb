@@ -1,0 +1,16 @@
+
+
+<div class="comment-row">
+  <a class="user-profile-wrapper" href="/users/<%=comment.user.id%>">
+    <div class="user-cover"></div>
+    <div class="user-profile">
+      <div class="name"> <%= comment.user.name %> </div>
+      <div class="introduction"> <%= comment.user.introduction %> </div>
+      <div class="picktime"> <%= comment.updated_at %> </div>
+    </div>
+  </a>
+  <div class = "comment-wrapper">
+    <div class = "comment"> <%= markdown comment.comment %> </div>
+    <span id="like_count<%= comment.id %>"> <%= render partial: "likes/like", locals: {paper: comment.paper, comment: comment} %> </span>
+  </div>
+</div>
