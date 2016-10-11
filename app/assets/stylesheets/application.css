@@ -32,6 +32,7 @@ body, html {
     height: 100%;
     background-color: #fff;
     left: 0;
+    margin: 0 0;
 }
 
 
@@ -50,6 +51,7 @@ a {
 }
 
 .picks {
+
 }
 
 .section-header {
@@ -101,13 +103,15 @@ a {
 }
 
 .comment-wrapper {
-
 }
 
 .comment {
   line-height: 160%;
   margin: 10px 0;
   word-break: break-word;
+}
+
+.item{
 }
 
 

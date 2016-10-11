@@ -1,5 +1,4 @@
-<div class = "item">
-    
+<div class="item">
     <% if paper.image.url %>
         <%= image_tag paper.image.url, style: "width:100%"%>
     <% else %>
@@ -8,7 +7,7 @@
     <% if paper.headline %>
         <h2> <%= paper.headline %></h2>
     <% end %>
-    
+
     <%= link_to "#{paper.title}", "/papers/#{paper.id}"%>
     <strong> <%= paper.comments_count%> Picks</strong>
     <% if comment and comment.user %>
