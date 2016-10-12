@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to  :user
   belongs_to :paper, counter_cache: :comments_count
-  has_many :likes
+  has_many :likes, :dependent => :destroy
 
   def like_count
     likes.count
