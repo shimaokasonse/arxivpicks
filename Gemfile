@@ -52,6 +52,7 @@ group :production do
   gem 'pg'
 end
 
+gem "jquery-turbolinks" 
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'devise'

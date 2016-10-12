@@ -9,8 +9,8 @@ $("#papers .page").infinitescroll({
       img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
       msgText: "loading..."
     },
-    navSelector: "ul.pagination",
-    nextSelector: "ul.pagination li.page a[rel=next]",
+    navSelector: "nav.pagination",
+    nextSelector: "nav.pagination span.next  a[rel=next]",
     itemSelector: "#papers div.page" /* このDOMに差し掛かった時に、次のページのロードが始まる*/
 });
 </script>
