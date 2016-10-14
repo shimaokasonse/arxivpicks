@@ -35,6 +35,58 @@ body, html {
     margin: 0 0;
 }
 
+.search-button{
+  color: white;
+  background-color: black;
+}
+
+.source {
+  border: 3px solid #15274D;  
+  color: #15274D;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 1px;
+  display: table;
+}
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.title-box {
+  width: 80%;
+  float:left;
+  padding-left:2%;
+}
+
+.title-box h2{
+  font-size: 15px;
+}
+
+.picks-box {
+  width:15%;
+  float:left;
+}
+
+.curled-box {
+  border: 3px solid #15274D;  
+  color: #15274D;
+  border-radius: 50%;
+  height: 50px;
+  width:  50px;
+  text-align: center;
+  font-size: 10px;
+  margin-top: 30%;
+}
+.curled-box .num {
+  font-size: 20px;
+}
+
+
+
+
 .content {
     padding: 50px 0 0;
     width: 100%;
@@ -119,6 +171,7 @@ a {
 .item{
   margin-top:10px;
   background-color: #fff;
+  height: 100%;
 }
 
 #infscr-loading {
