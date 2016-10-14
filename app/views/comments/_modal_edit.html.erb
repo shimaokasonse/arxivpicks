@@ -1,11 +1,9 @@
 
-  <%= form_for([@paper, @comment], action: :update) do |f| %>
-    <div style="margin: 8px auto">
-      <%= f.text_area :comment, value: @comment.comment, placeholder: "コメントする", style: 'width: 80%;height: 100px; margin: 10 auto;' %>
-    </div>
-    <div style="margin: 8px auto">
-      <%= button_tag type: "submit" do %>
-        投稿する<i></i>
-      <% end %>
-    </div>
+
+
+<%= form_for([@paper, @comment], action: :update) do |f| %>
+      <%= f.text_area :comment, value: @comment.comment, placeholder: 'コメントする',class: "comment-text-area"%>
+        <%= button_tag type: "submit", class: "comment-button" do %>
+          pick<i></i>
+        <% end %>
   <% end %>
