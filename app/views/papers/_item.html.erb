@@ -1,16 +1,18 @@
 <div class="item">
-    <% if paper.image.url %>
-        <%= image_tag paper.image.url, style: "width:100%"%>
-    <% else %>
-        <%= image_tag "http://free-tribe.com/okamura/wp-content/uploads/sites/4/2016/01/sat-ai-head-640x353.jpg", style: "width:100%"%>
-    <% end %>
-    <% if paper.headline %>
-        <h2> <%= paper.headline %></h2>
-    <% end %>
-
-    <%= link_to "#{paper.title}", "/papers/#{paper.id}"%>
-    <strong> <%= paper.comments_count%> Picks</strong>
-    <% if comment and comment.user %>
-      <%= render partial: "/papers/commentbox", locals: {comment: comment} %>
+    <a href="/papers/<%= paper.id %>">
+        <% if paper.image.url %>
+            <%= image_tag paper.image.url, style: "width:100%; "%>
+        <% else %>
+            <%= image_tag "https://www.obayashi.co.jp/tri/facilities/img/photo01.jpg", style: "width:100%; "%>
+        <% end %>
+        <% if paper.headline %>
+            <h2> <%= truncate(paper.headline, length: 20, separator: '...') %></h2>
+        <% else %>
+            <h2> <%= truncate(paper.title , length: 30, separator: '...')%> </h2>
+        <% end %>
+        <strong> <%= paper.comments_count%> Picks</strong>
+    </a>
+    <% if comment %>
+      <%= render partial: "/papers/commentbox2", locals: {comment: comment} %>
     <% end %>
 </div>

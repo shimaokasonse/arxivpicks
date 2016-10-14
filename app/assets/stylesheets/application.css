@@ -30,20 +30,16 @@ body, html {
     font-size: 14px;
     color: #222;
     height: 100%;
-    background-color: #DDD;
+    background-color: #AAA;
     left: 0;
     margin: 0 0;
 }
-
-
-
 
 .content {
     padding: 50px 0 0;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    background-color: #fff;
 }
 
 
@@ -66,6 +62,12 @@ a {
 .comment-row {
   margin: 10px 10px 0;
   border-bottom: 1px solid #CCC;
+}
+
+.comment-row2 {
+  margin: 0 0 ;
+  border-bottom: 1px solid #000;
+  background-color: #EEE;
 }
 
 .user-profile-wrapper {
@@ -115,6 +117,8 @@ a {
 }
 
 .item{
+  margin-top:10px;
+  background-color: #fff;
 }
 
 #infscr-loading {

@@ -1,0 +1,12 @@
+<div class="comment-row2">
+  <a class="user-profile-wrapper" href="/users/<%=comment.user.id%>">
+    <div class="user-cover"></div>
+    <div class="user-profile">
+      <div class="name"> <%= comment.user.name %> </div>
+      <div class="introduction"> <%= comment.user.introduction %> </div>
+    </div>
+  </a>
+  <div class = "comment-wrapper">
+    <div class = "comment"> <%= markdown truncate(comment.comment, length: 60, separator: '...') %> </div>
+  </div>
+</div>

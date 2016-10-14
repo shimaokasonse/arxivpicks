@@ -1,11 +1,11 @@
-<div>
+<div class="item">
   <div>
     <% if user_signed_in? %>
       <% if @paper.comment_user(current_user.id) %>
         <%= link_to 'コメントを編集', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit",  remote: true %>
         <%= link_to 'コメントを削除', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete, data: { confirm: '本当に消しますか?' }  %>
       <% else %>
-        <%= link_to 'Pick!', "/papers/#{@paper.id}/comments/new",  remote:true%>
+        <%= link_to 'Pick!', "/papers/#{@paper.id}/comments/new",  remote:true %>
       <% end %>
     <% end %>
   </div>
@@ -13,23 +13,23 @@
   <% if @paper.image.url %>
     <%= image_tag @paper.image.url, style: "width:100%;"%>
   <% else %>
-    <%= image_tag "http://free-tribe.com/okamura/wp-content/uploads/sites/4/2016/01/sat-ai-head-640x353.jpg", style: "width:100%;"%>
+    <%= image_tag "https://www.obayashi.co.jp/tri/facilities/img/photo01.jpg", style: "width:100%;"%>
   <% end %>
 
   <% if @paper.headline %>
-    <h2> <%= @paper.headline %></h2>
+    <h2> <%= @paper.headline %> </h2>
+  <% else %>
+    <h2> <%= @paper.title %> </h2>
   <% end %>
-  <%= link_to "#{@paper.title}", "#{@paper.url}" %>
-  <strong> <%= @paper.comments_count%> Picks</strong>
+  <%= link_to "論文を読む", "#{@paper.url}" %>
+  <strong> <%= @paper.comments_count%> Picks </strong>
 
 <div id="modal-content"></div>
 
   <div class="picks">
     <div class="section-header">注目コメント</div>
     <% @comments.each do |comment| %>
-      <% if comment.user %>
         <%= render partial: "commentbox", locals: {comment: comment} %>
-      <% end %>
     <% end %>
   </div>
 
