@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # 追加
   config.assets.raise_runtime_errors = true
-  config.action_mailer.default_url_options = { host: 'https://pure-journey-62889.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'https://arxivpicks.herokuapp.com'}
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
