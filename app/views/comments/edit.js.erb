@@ -1,5 +1,11 @@
-$("body").append('<div id="modal-overlay">aaa</div>');
+
+
+$("body").append('<div id="modal-overlay"></div>');
 $("#modal-overlay").fadeIn("slow");
 $("#modal-content").css("display","block");
 $("#modal-content").css("z-index","2").html("<%= escape_javascript(render partial:'modal_edit') %>");
-$(".comment-text-area").focus();
+var onClickHandler = function(){
+    $(".comment-text-area").focus();
+}
+$('.comment-text-area').bind('click', onClickHandler);
+$('.comment-text-area').click();

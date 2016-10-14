@@ -3,4 +3,8 @@ $("body").append('<div id="modal-overlay">aaa</div>');
 $("#modal-overlay").fadeIn("slow");
 $("#modal-content").css("display","block");
 $("#modal-content").css("z-index","2").html("<%= escape_javascript(render partial:'modal_new') %>");
-$(".comment-text-area").focus();
+var onClickHandler = function(){
+    $(".comment-text-area").focus();
+}
+$('.comment-text-area').bind('click', onClickHandler);
+$('.comment-text-area').click();
