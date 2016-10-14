@@ -26,6 +26,7 @@ header {
     z-index: 1;
     text-align: center;
     color: #EEF;
+    font-size: 20px;
 }
 
 
@@ -194,6 +195,7 @@ a {
 
 #modal-content{
   width: 100%;
+  max-width: 400px;
   size: 20px;
   margin:auto auto;
   padding:10px 20px;
@@ -225,13 +227,14 @@ a {
   position: fixed;
   z-index: 1;
   bottom: 0;
-  height: 30px;
+  height: 25px;
   background-color: #fff;
   color: #15274D;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   width: 100%;
   right:auto;
+  display: none;
 }
 
 .comment-text-area{
