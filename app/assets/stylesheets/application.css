@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+h1,h2,h3 {
+  font-family: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
+}
 header {
     background-color: #15274D;
     position: fixed;
@@ -40,12 +44,17 @@ body, html {
   background-color: black;
 }
 
+.show {
+    background-color: #253050;
+    padding-bottom: 10px;
+}
+
 .source {
-  border: 3px solid #15274D;  
-  color: #15274D;
-  font-size: 20px;
+  border: 2px solid #fff;  
+  color: #fff;
+  font-size: 15px;
   margin: 0 auto;
-  padding: 1px;
+  padding: 3px;
   display: table;
 }
 
@@ -59,10 +68,12 @@ body, html {
   width: 80%;
   float:left;
   padding-left:2%;
+  color: #fff;
 }
 
 .title-box h2{
   font-size: 15px;
+  font-weight: normal;
 }
 
 .picks-box {
@@ -71,8 +82,8 @@ body, html {
 }
 
 .curled-box {
-  border: 3px solid #15274D;  
-  color: #15274D;
+  border: 2px solid #fff;  
+  color: #fff;
   border-radius: 50%;
   height: 50px;
   width:  50px;
@@ -179,8 +190,9 @@ a {
 }
 
 #modal-content{
-  width:80%;
-  margin:1.5em auto 0;
+  width:100%;
+  max-width:400px;
+  margin:auto auto;
   padding:10px 20px;
   border:2px solid #aaa;
   background:#fff;

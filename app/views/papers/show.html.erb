@@ -10,25 +10,27 @@
     <% end %>
   </div>
 
-  <% if @paper.image.url %>
-    <%= image_tag @paper.image.url, style: "width:100%;"%>
-  <% else %>
-    <%= image_tag "https://www.obayashi.co.jp/tri/facilities/img/photo01.jpg", style: "width:100%;"%>
-  <% end %>
+  <div class="show">
+    <% if @paper.image.url %>
+      <%= image_tag @paper.image.url, style: "width:100%;"%>
+    <% else %>
+      <%= image_tag "https://www.obayashi.co.jp/tri/facilities/img/photo01.jpg", style: "width:100%;"%>
+    <% end %>
 
-  <div class="clearfix">
-    <div class="title-box">
-      <% if @paper.headline %>
-        <h2> <%= @paper.headline %> </h2>
-      <% else %>
-        <h2> <%= @paper.title %> </h2>
-      <% end %>
+    <div class="clearfix">
+      <div class="title-box">
+        <% if @paper.headline %>
+          <h2> <%= @paper.headline %> </h2>
+        <% else %>
+          <h2> <%= @paper.title %> </h2>
+        <% end %>
+      </div>
+      <div class="picks-box">
+        <div class="curled-box"> <span class="num"><%= @paper.comments_count%></span> <br> Picks </div>
+      </div>
     </div>
-    <div class="picks-box">
-      <div class="curled-box"> <span class="num"><%= @paper.comments_count%></span> <br> Picks </div>
-    </div>
+    <div class="source"><%= link_to "論文を読む", "#{@paper.url}"%></div>
   </div>
-  <div class="source"><%= link_to "論文を読む", "#{@paper.url}"%></div>
 
 <div id="modal-content"></div>
 
