@@ -22,7 +22,7 @@
        <%= link_to 'マイページ', "/users/#{current_user.id}", method: :get %>
        <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
       <% else %>
-       <%= link_to 'ログイン', "/users/sign_in", method: :get %> 
+       <%= link_to '新規登録', "/users/sign_up", method: :get %> 
       <% end %>
     
   </header>

@@ -2,7 +2,7 @@
 
 
 <%= form_for([@paper, @comment], action: :update) do |f| %>
-      <%= f.text_area :comment, value: @comment.comment, placeholder: 'コメントする',class: "comment-text-area"%>
+      <%= f.text_area :comment, value: @comment.comment, placeholder: 'コメントを書く...',class: "comment-text-area"%>
         <%= button_tag type: "submit", class: "comment-button" do %>
           pick<i></i>
         <% end %>
