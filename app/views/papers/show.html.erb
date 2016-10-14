@@ -35,7 +35,7 @@
     <% if user_signed_in? %>
       <% if @paper.comment_user(current_user.id) %>
         <%= link_to 'コメントを編集', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit",  remote: true %>
-        <%= link_to 'コメントを削除', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete, data: { confirm: '本当に消しますか?' }  %>
+        <%= link_to 'コメントを削除', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete %>
       <% else %>
         <%= link_to 'Pickする', "/papers/#{@paper.id}/comments/new",  remote:true %>
       <% end %>
@@ -45,19 +45,20 @@
 </div>
 
 <script>
-$('.pick').css('width' , $('.item').outerWidth() );
+$(document).ready(function(){
+  $('.pick').css('width' , $('.item').outerWidth() );
 
-var sc_previous = $(document).scrollTop();
-$(document).scroll(function () {
-  var sc_now = $(document).scrollTop();
-  if (sc_previous - sc_now < 1){
-    $(".pick").fadeOut("fast");
-    sc_previous = sc_now;
-  }else{
-    $(".pick").fadeIn("fast");
-  }
+  var sc_previous = $(document).scrollTop();
+  $(document).scroll(function () {
+    var sc_now = $(document).scrollTop();
+    if (sc_previous - sc_now < 1){
+      $(".pick").fadeOut("fast");
+      sc_previous = sc_now;
+    }else{
+      $(".pick").fadeIn("fast");
+    }
+  });
 });
-
 </script>
 
 
