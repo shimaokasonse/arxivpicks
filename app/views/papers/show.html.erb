@@ -23,9 +23,14 @@
   </div>
 
 <div id="modal-content" class="clearfix"></div>
+<% if not @comments[0] %>
+  <div class="abstract"><%= simple_format @paper.abstract %></div>
+<% end %>
 
   <div class="picks">
-    <div class="section-header">注目コメント</div>
+    <% if  @comments[0] %>
+      <div class="section-header">コメント</div>
+    <% end %>
     <% @comments.each do |comment| %>
         <%= render partial: "commentbox", locals: {comment: comment} %>
     <% end %>
@@ -34,11 +39,11 @@
   <div class="pick">
     <% if user_signed_in? %>
       <% if @paper.comment_user(current_user.id) %>
-        <%= link_to 'Pickを編集📘', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit",  remote: true %>
+        <%= link_to '🍁Pickを編集🍁', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit",  remote: true %>
         <span style="color:white">......</span>
-        <%= link_to 'Pickを削除🚮', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete %>
+        <%= link_to '🔥Pickを削除🔥', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete %>
       <% else %>
-        <%= link_to 'Pickする😃', "/papers/#{@paper.id}/comments/new",  remote:true %>
+        <%= link_to '🍀Pickする🍀', "/papers/#{@paper.id}/comments/new",  remote:true %>
       <% end %>
       <script>
       $(document).ready(function(){

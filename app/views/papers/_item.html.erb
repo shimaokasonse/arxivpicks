@@ -8,11 +8,15 @@
         <% if paper.headline %>
             <h2> <%= truncate(paper.headline, length: 20, separator: '...') %></h2>
         <% else %>
-            <h2> <%= truncate(paper.title , length: 30, separator: '...')%> </h2>
+            <h2> <%= truncate(paper.title , length: 80, separator: '...')%> </h2>
         <% end %>
         <strong> <%= paper.comments_count%> Picks</strong>
     </a>
     <% if comment %>
       <%= render partial: "/papers/commentbox2", locals: {comment: comment} %>
+    <% else %>
+        <div class = "comment-wrapper">
+            <div class = "comment"> <%= markdown truncate(paper.abstract, length: 144, separator: '...') %> </div>
+        </div>
     <% end %>
 </div>
