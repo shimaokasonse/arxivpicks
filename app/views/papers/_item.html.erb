@@ -1,4 +1,5 @@
 <div class="item">
+    <div>
     <a href="/papers/<%= paper.id %>">
         <% if paper.image.url %>
             <%= image_tag paper.image.url, style: "width:100%; "%>
@@ -12,6 +13,8 @@
         <% end %>
         <strong> <%= paper.comments_count%> Picks</strong>
     </a>
+    </div>
+
     <% if comment %>
       <%= render partial: "/papers/commentbox2", locals: {comment: comment} %>
     <% else %>
