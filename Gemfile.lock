@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/outpunk/evil-icons.git
+  revision: d5dfbcd2e0aac220c15e914a23e7b61f0c77b649
+  specs:
+    evil_icons (1.8.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -347,6 +353,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   devise
+  evil_icons!
   factory_girl_rails (~> 4.4.1)
   fog
   i18n
@@ -368,4 +375,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.2
+   1.13.5

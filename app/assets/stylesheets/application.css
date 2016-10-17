@@ -12,9 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require evil-icons
  */
 
-h1,h2,h3 {
+
+
+h1,h2,h3, header {
   font-family: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
 }
 header {
@@ -41,9 +44,37 @@ body, html {
     margin: 0 0;
 }
 
+.navbar{
+    -webkit-padding-start: 0px;
+    width: 100%;
+    margin: 0 0;
+    display:table;
+}
+.navbar li{
+  display:table-cell;
+  text-align:center;
+  box-sizing:border-box;
+  border:#888 1px solid;
+}
+
 .search-button{
   color: white;
   background-color: black;
+}
+
+.search-box {
+  left: 0;
+  margin-bottom: 5px;
+}
+
+.search-box input{
+  color: white;
+  font-size: 18px;
+  background-color: black;
+  height: 20px;
+  width: 70%;
+  border-width: 0;
+
 }
 
 .show {
@@ -101,7 +132,7 @@ body, html {
 
 
 .content {
-    padding: 50px 0 0;
+    padding: 30px 0 0;
     width: 100%;
     height: 100%;
     max-width: 500px;
@@ -145,6 +176,9 @@ a {
   height: 50px;
   float: left;
   margin-right: 10px;
+  color: white;
+  background-color: silver;
+
 
 }
 
@@ -264,4 +298,6 @@ a {
   width: 85%;
   text-align: center;
 }
+
+
 

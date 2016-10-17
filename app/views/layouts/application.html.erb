@@ -5,32 +5,35 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= evil_icons_sprite %>
   <meta content="width=device-width,user-scalable=no" name="viewport">
+
 </head>
 <body>
+
   <header>
-    <div class="search-box">
+      <div class="search-box">
       <%= form_tag('/papers/search', method: :get) do %>
         <input  name="keyword" placeholder="論文を検索" type="text" value="">
-          <button title="検索" type="submit" class="search-button">検索</button>
         </input>
       <% end %>
-    </div>
-   
-      <a href="/"> ArxivPicks </a> 
-      <% if user_signed_in? %>
-       <%= link_to 'マイページ', "/users/#{current_user.id}", method: :get %>
-       <%= link_to 'ログアウト', "/users/sign_out", method: :delete %>
-      <% else %>
-       <%= link_to '新規登録', "/users/sign_up", method: :get %> 
-      <% end %>
-    
+      </div>
+      <ul class="navbar">
+        <li> <a href="/"> ArxivPicks </a> </li>
+        <% if user_signed_in? %>
+          <li> <%= link_to 'マイページ', "/users/#{current_user.id}", method: :get %> </li>
+          <li> <%= link_to 'ログアウト', "/users/sign_out", method: :delete %> </li>
+        <% else %>
+          <li> <%= link_to '新規登録', "/users/sign_up", method: :get %> </li>
+        <% end %>
+      </ul>
   </header>
 
   <div class="content">
     <%= yield %>
   </div>
 
- 
 </body>
 </html>
+
+
