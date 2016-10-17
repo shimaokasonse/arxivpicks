@@ -1,0 +1,11 @@
+  <header>
+      <ul class="navbar">
+        <li> <a href="/"> < </a> </li>
+        <% if user_signed_in? %>
+          <li> コメントを編集 </li>
+          <li> コメントを削除</li>
+        <% else %>
+          <li> Pick! </li>
+        <% end %>
+      </ul>
+  </header>

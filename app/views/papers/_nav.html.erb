@@ -1,0 +1,18 @@
+  <header>
+      <div class="search-box">
+      <%= form_tag('/papers/search', method: :get) do %>
+        <input  name="keyword" placeholder="論文を検索" type="text" value="">
+        </input>
+      <% end %>
+      </div>
+      <ul class="navbar">
+        <li> <a href="/"> ArxivPicks </a> </li>
+        <% if user_signed_in? %>
+          <li> <%= link_to 'マイページ', "/users/#{current_user.id}", method: :get %>　 </li>
+          <li> <%= link_to 'ログアウト', "/users/sign_out", method: :delete %> </li>
+        <% else %>
+          <li> <%= link_to '新規登録', "/users/sign_up", method: :get %> </li>
+        <% end %>
+      </ul>
+  </header>
+  

@@ -55,6 +55,7 @@ body, html {
   text-align:center;
   box-sizing:border-box;
   border:#888 1px solid;
+  margin: 0 0;
 }
 
 .search-button{
