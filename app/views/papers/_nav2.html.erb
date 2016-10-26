@@ -1,6 +1,6 @@
   <header>
       <ul class="navbar">
-        <li> <a href="/"> < </a> </li>
+        <li> <a href="/"> < 戻る </a> </li>
         <% if user_signed_in? %>
           <% if @paper.comment_user(current_user.id) %>
             <li> <%= link_to 'Pickを編集', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit",  remote: true %> </li>
