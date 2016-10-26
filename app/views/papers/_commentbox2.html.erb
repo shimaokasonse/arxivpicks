@@ -1,6 +1,10 @@
 <div class="comment-row2">
   <a class="user-profile-wrapper" href="/users/<%=comment.user.id%>">
-    <div class="user-cover"><%= evil_icon 'ei-user', size: :m %></div>
+    <% if comment.user.image.url %>
+      <div class="user-cover"> <%= image_tag comment.user.image.url%> </div>
+    <% else %>
+      <div class="user-cover"><%= evil_icon 'ei-user', size: :m %></div>
+    <% end %>
     <div class="user-profile">
       <div class="name"> <%= comment.user.name %> </div>
       <div class="introduction"> <%= comment.user.introduction %> </div>

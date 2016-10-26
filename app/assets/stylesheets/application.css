@@ -165,12 +165,14 @@ a {
 .comment-row {
   margin: 10px 10px 0;
   border-bottom: 1px solid #CCC;
+  min-height: 70px;
 }
 
 .comment-row2 {
   margin: 0 0 ;
   border-bottom: 1px solid #000;
   background-color: #EEE;
+  min-height: 70px;
 }
 
 .user-profile-wrapper {
