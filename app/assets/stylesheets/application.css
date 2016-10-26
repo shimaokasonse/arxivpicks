@@ -75,12 +75,18 @@ body, html {
   height: 20px;
   width: 70%;
   border-width: 0;
+  border-radius: 20px;
 
 }
 
 .show {
     background-color: #253050;
     padding-bottom: 10px;
+}
+
+.paper h2{
+  text-align: center;
+ 
 }
 
 .source {
@@ -108,6 +114,7 @@ body, html {
 .title-box h2{
   font-size: 15px;
   font-weight: normal;
+  text-align: center;
 }
 
 .picks-box {
@@ -210,8 +217,8 @@ a {
 }
 
 .comment {
-  line-height: 160%;
-  margin: 10px 0;
+  line-height: 150%;
+  margin: 10px 5px;
   word-break: break-word;
 }
 
@@ -293,10 +300,23 @@ a {
 }
 
 .abstract{
-  margin: 0 auto;
-  width: 85%;
+  margin: 10px auto;
+  width: 90%;
   text-align: center;
+  border:black 1px solid;
+  border-radius: 10px;
+  padding: 3px;
 }
 
+
+.login {
+  margin: 0 10px;
+}
+
+.login input{
+  height: 25px;
+  width: 200px;
+  font-size:20px;
+}
 
 

@@ -2,10 +2,14 @@
       <ul class="navbar">
         <li> <a href="/"> < </a> </li>
         <% if user_signed_in? %>
-          <li> コメントを編集 </li>
-          <li> コメントを削除</li>
+          <% if @paper.comment_user(current_user.id) %>
+            <li> <%= link_to 'Pickを編集', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit",  remote: true %> </li>
+            <li> <%= link_to 'Pickを削除', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete %> </li>
+          <% else %>
+            <li> <%= link_to 'Pickする', "/papers/#{@paper.id}/comments/new",  remote:true %> </li>  
+          <% end %>
         <% else %>
-          <li> Pick! </li>
+            <li> <a href="/users/sign_up"> Pickする </a> </li>   
         <% end %>
       </ul>
   </header>

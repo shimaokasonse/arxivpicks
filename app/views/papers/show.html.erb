@@ -26,8 +26,11 @@
   </div>
 
 <div id="modal-content" class="clearfix"></div>
+
 <% if not @comments[0] %>
   <div class="abstract"><%= simple_format @paper.abstract %></div>
+<% else %>
+  <div class="abstract" id="truncate"> <%= simple_format truncate(@paper.abstract, length: 144, separator: '...') %> <strong>すべて表示</strong> </div>
 <% end %>
 
   <div class="picks">
@@ -39,40 +42,12 @@
     <% end %>
   </div>
 
-  <div class="pick">
-    <% if user_signed_in? %>
-      <% if @paper.comment_user(current_user.id) %>
-        <%= link_to '🍁Pickを編集🍁', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}/edit",  remote: true %>
-        <span style="color:white">......</span>
-        <%= link_to '🔥Pickを削除🔥', "/papers/#{@paper.id}/comments/#{@paper.comment_user(current_user.id).id}", method: :delete %>
-      <% else %>
-        <%= link_to '🍀Pickする🍀', "/papers/#{@paper.id}/comments/new",  remote:true %>
-      <% end %>
-      <script>
-      $(document).ready(function(){
-
-        
-        
-
-        $('.pick').css('width' , $('.item').outerWidth() );
-
-        var sc_previous = $(document).scrollTop();
-        $(document).scroll(function () {
-          var sc_now = $(document).scrollTop();
-          if (sc_previous - sc_now < 1){
-            $(".pick").fadeOut("fast");
-            sc_previous = sc_now;
-          }else{
-            $(".pick").fadeIn("fast");
-          }
-        });
-      });
-      </script>
-    <% end %>
-  </div>
-
 </div>
 </div>
+
+<script>
+ $("#truncate").click(function(){ $("#truncate").html('<%= simple_format @paper.abstract %>'); });
+</script>
 
 <script>
 // History API が使えるブラウザかどうかをチェック
