@@ -218,7 +218,7 @@ a {
 
 .comment {
   line-height: 150%;
-  margin: 10px 5px;
+  margin: 7px 5px;
   word-break: break-word;
 }
 
@@ -306,6 +306,33 @@ a {
   border:black 1px solid;
   border-radius: 10px;
   padding: 3px;
+}
+
+.like{
+    -webkit-padding-start: 0px;
+    margin: 0 0;
+    display:table;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.like li{
+  display:table-cell;
+  padding: 5px;
+  text-align:center;
+  box-sizing:border-box;
+  background-color: #EEE;
+  color: #666;
+  font-size: 12px;
+}
+
+.like li+li{
+  border-left: #BBB 1px solid;
+  border-right: none;
+}
+
+.done li{
+  color: #2314B7;
+  font-weight: bold;
 }
 
 
