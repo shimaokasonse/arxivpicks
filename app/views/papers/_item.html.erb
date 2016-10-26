@@ -2,7 +2,7 @@
     <div class="paper">
     <a href="/papers/<%= paper.id %>">
         <% if paper.image.url %>
-            <%= image_tag paper.image.url, style: "width:100%; "%>
+            <%= image_tag paper.image.url%>
         <% else %>
             <%= image_tag "https://www.obayashi.co.jp/tri/facilities/img/photo01.jpg", style: "width:100%; "%>
         <% end %>
@@ -19,7 +19,7 @@
       <%= render partial: "/papers/commentbox2", locals: {comment: comment} %>
     <% else %>
         <div class = "comment-wrapper">
-            <div class = "comment"> <%= markdown truncate(paper.abstract, length: 144, separator: '...') %> </div>
+            <div class = "comment"> <%= simple_format truncate(paper.abstract, length: 144, separator: '...') %> </div>
         </div>
     <% end %>
 </div>

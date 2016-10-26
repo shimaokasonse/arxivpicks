@@ -194,6 +194,11 @@ a {
 
 }
 
+.profimg {
+  width: 48px;
+  height: 48px;
+}
+
 .name {
   font-size: 110%;
   font-weight: 700;
